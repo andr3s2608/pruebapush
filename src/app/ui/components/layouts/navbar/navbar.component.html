@@ -1,0 +1,154 @@
+<nav class="navbar bg-color-marine-dark navbar-expand-lg navbar-light" id="myNavbar" #myNavbar>
+    <img  class="logo" src="../../assets/logo/logo.png" alt="">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- REFERENTE MENU-->
+    <div *ngIf="roles.name == 'referente'">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" routerLink="/menu"  routerLinkActive="active">
+            <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item" routerLink="/seguimiento-solicitud" routerLinkActive="active">
+            <a class="nav-link">seguimiento solicitudes</a>
+          </li>
+          <li class="nav-item" routerLink="/solicitud-servicio" routerLinkActive="active">
+            <a class="nav-link">solicitud de transporte</a>
+          </li>
+          <span class="nav-item" >
+            <a class="nav-link username">{{username}}</a>
+          </span>
+          <li class="nav-item" routerLink="/Acceso" routerLinkActive="active">
+            <a class="nav-link exit"><i class="fa-solid fa-power-off"></i></a>
+          </li>
+          <!-- Menu desplegar -->
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li> -->
+        </ul>
+          <!-- Buscador -->
+        <!-- <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> -->
+      </div>
+    </div>
+    <!-- PROGRAMADOR MENU-->
+    <div *ngIf="roles.name == 'programador'">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" routerLink="/menu"  routerLinkActive="active">
+            <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item" routerLink="/seguimiento-programador" routerLinkActive="active">
+            <a class="nav-link">seguimiento solicitudes</a>
+          </li>
+          <li class="nav-item" routerLink="/administracion-vehiculo" routerLinkActive="active">
+            <a class="nav-link">administración de vehículo</a>
+          </li>
+          <li class="nav-item" routerLink="/rutas-programador" routerLinkActive="active">
+            <a class="nav-link">rutas directivas</a>
+          </li>
+          <li class="nav-item" routerLink="/solicitud-servicio-programador" routerLinkActive="active">
+            <a class="nav-link">solicitud transporte</a>
+          </li>
+          <span class="nav-item" >
+            <a class="nav-link programador">{{username}}</a>
+          </span>
+          <li class="nav-item" routerLink="/Acceso" routerLinkActive="active">
+            <a class="nav-link exit"><i class="fa-solid fa-power-off"></i></a>
+          </li>
+        </ul>
+          <!-- Buscador -->
+        <!-- <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> -->
+      </div>
+    </div>
+    <!-- DIRECTIVO MENU-->
+    <div *ngIf="roles.name == 'directivo'">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" routerLink="/menu"  routerLinkActive="active">
+            <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item" routerLink="/seguimiento-directivos" routerLinkActive="active">
+            <a class="nav-link">seguimiento solicitudes</a>
+          </li>
+          <span class="nav-item" >
+            <a class="nav-link usernamer">{{username}}</a>
+          </span>
+          <li class="nav-item" routerLink="/Acceso" routerLinkActive="">
+            <a class="nav-link exit"><i class="fa-solid fa-power-off"></i></a>
+          </li>
+        </ul>
+          <!-- Buscador -->
+        <!-- <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> -->
+      </div>
+    </div>
+    <!-- CONDUCTOR MENU-->
+    <div *ngIf="roles.name == 'conductor'">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" routerLink="/menu"  routerLinkActive="active">
+            <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item" routerLink="/seguimiento-conductor" routerLinkActive="active">
+            <a class="nav-link">seguimiento solicitudes</a>
+          </li>
+          <span class="nav-item" >
+            <a class="nav-link username">{{username}}</a>
+          </span>
+          <li class="nav-item" routerLink="/Acceso" routerLinkActive="active">
+            <a class="nav-link"><i class="fa-solid fa-power-off"></i></a>
+          </li>
+        </ul>
+          <!-- Buscador -->
+        <!-- <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> -->
+      </div>
+    </div>
+
+    <!-- USUARIO MENU-->
+    <div *ngIf="roles.name == 'usuario'">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" routerLink="/menu"  routerLinkActive="active">
+            <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item" routerLink="/seguimiento-usuario" routerLinkActive="active">
+            <a class="nav-link">seguimiento solicitudes</a>
+          </li>
+          <span class="nav-item" >
+            <a class="nav-link" style="cursor: pointer;">{{username}}</a>
+          </span>
+          <li class="nav-item" routerLink="/Acceso" routerLinkActive="active">
+            <a class="nav-link"><i class="fa-solid fa-power-off"></i></a>
+          </li>
+        </ul>
+          <!-- Buscador -->
+        <!-- <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> -->
+      </div>
+    </div>
+  </nav>

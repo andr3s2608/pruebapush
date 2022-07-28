@@ -1,0 +1,79 @@
+<div class="container mt-4">
+    <h2>Solicitudes realizadas</h2>
+    <form  [formGroup]="form">
+        <div class="row mb-4 mt-3">
+            <div class="col">
+                <h6 class="mb-3">Fecha de Servicios</h6>
+                <div class="row" >
+                    <div class="col">
+                        Fecha Inicial
+                        <input  class="form form-control" type="date" formControlName="initial_date_services">
+                    </div>
+                    <div class="col">
+                        Fecha Final
+                        <input  class="form form-control" type="date" formControlName="final_date_services">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h6 class="mb-3">Fecha de Solicitud</h6>
+                <div class="row">
+                    <div class="col">
+                        <span>
+                            Fecha Inicial
+                            <input  class="form form-control" type="date" formControlName="initial_date_request">
+                        </span>
+                    </div>
+                    <div class="col">
+                        Fecha Final
+                        <input  class="form form-control" type="date" formControlName="final_date_request">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4" >
+            <div class="col-6 mt-3">
+                <h6 class="mb-3">Hora del Servicios</h6>
+                <div class="row">
+                    <div class="col">
+                        Hora Inicial
+                        <input  class="form form-control" type="time" formControlName="start_time_services">
+                    </div>
+                    <div class="col">
+                        Hora Final
+                        <input  class="form form-control" type="time" formControlName="final_time_services">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                Estado
+                <select formControlName="state" class="custom-select" id="inputGroupSelect04">
+                    <option value=''>Estados Disponibles</option>
+                    <option value="19"> Pendiente de aprobacion </option>
+                    <option value="20"> Aprobada</option>
+                    <option value="21"> Rechazada </option>
+                    <option value="22"> Cancelada</option>
+                    <option value="23">Validacion de datos</option>
+                    <option value="24">No procedente</option>
+                    <option value="25">Asignada</option>
+                    <option value="26">Finalizada</option>
+                </select>
+            </div>
+            <div class="col">
+                ID Solicitud
+                <input formControlName="request_id" type="text" class="form form-control">
+            </div>
+            <div class="col">
+                Referente
+                <select formControlName="referrer" class="custom-select" id="inputGroupSelect04">
+                        <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-round btn-high" [disabled]="!form.valid" (click)="search()">Buscar</button>
+        </div>
+    </form>
+</div>

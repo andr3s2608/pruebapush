@@ -1,0 +1,44 @@
+.nav-item a{
+    color: #fff !important ;
+}
+
+.navbar-nav .nav-item:hover{
+   background: darken(#004884, 10%) !important;
+}
+
+.navbar-nav a:hover{
+   background: darken(#004884, 10%) !important;
+}
+
+.navbar-nav .nav-item.active{
+   background: darken(#004884, 10%) !important;
+}
+
+
+
+.bg-color-marine-dark{
+    background-color: #004884;
+}
+
+.logo{
+    width: 60px;
+    margin-right: 1rem;
+}
+
+.username {
+    margin-left:500px;
+    text-decoration: none;
+}
+
+.usernamer {
+    margin-left:700px;
+    text-decoration: none;
+}
+.programador{
+    margin-left: 100px;
+}
+
+.exit {
+    margin-left: -30px !important;
+    cursor: pointer !important;
+}

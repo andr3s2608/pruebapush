@@ -1,0 +1,217 @@
+<div class="container mt-4">
+    <!-- <h2>Ajuste Solicitud de Servicio </h2> -->
+    <h2>{{title}}</h2>
+     <!-- seccion 1 -->
+     <form  [formGroup]="form">
+        <div class="row mb-4 mt-3" *ngIf="title!=='Aprobación Solicitud De Servicio' ">
+            <div class="col">
+                <h6 class="mb-3">Justificación del ajuste</h6>
+                <div class="row" >
+                    <div class="col-6">
+                    <textarea class="form form-control" formControlName="justification"  name="" id="" cols="30" rows="2" [attr.disabled]="inhabilitar"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-6">
+                <h6 class="mb-3">Fecha de solicitud</h6>
+                <div class="row">
+                    <input  class="form form-control" formControlName="application_date" type="date" name="" id="">
+                </div>
+            </div>
+            <div class="col-6" *ngIf="title!=='Aprobación Solicitud De Servicio' ">
+                <h6 class="mb-3">Tipo de Transporte</h6>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="Transporte"
+                    [checked]="actualChecked === check_type.Carga" (click)="selectCheckBoxtransporte(check_type.Carga, 'Carga')"  >
+                    <label class="form-check-label" for="flexCheckChecked1">
+                        Carga
+                    </label>
+                    </div>
+                    <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="Transporte"
+                    [checked]="actualChecked === check_type.Pasajero" (click)="selectCheckBoxtransporte(check_type.Pasajero ,'Pasajero')" >
+                    <label class="form-check-label" for="flexCheckChecked2">
+                        Pasajero
+                    </label>
+                </div>
+
+            </div>
+            <div class="col-6" *ngIf="title=='Aprobación Solicitud De Servicio' ">
+                <h6 class="mb-3">Tipo de Transporte</h6>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="Transporte"
+                    [checked]="actualChecked === check_type.Carga" (click)="selectCheckBoxtransporte(check_type.Carga, 'Carga')"  [attr.disabled]="inhabilitar">
+                    <label class="form-check-label" for="flexCheckChecked1">
+                        Carga
+                    </label>
+                    </div>
+                    <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="Transporte"
+                    [checked]="actualChecked === check_type.Pasajero" (click)="selectCheckBoxtransporte(check_type.Pasajero ,'Pasajero')"  [attr.disabled]="inhabilitar">
+                    <label class="form-check-label" for="flexCheckChecked2">
+                        Pasajero
+                    </label>
+                </div>
+
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                Cantidad de pasajeros
+                <input 
+                [ngClass]="{'invalid-input': form.get('number_passengers')?.invalid }"
+                type="number"  
+                onkeydown="return event.keyCode !== 69"
+                onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                max="100" min="1"
+                formControlName="number_passengers" class="form form-control">
+            </div>
+            <div class="col">
+                Dependencias
+                <select  formControlName="dependence" (ngModelChange)="foundName($event)" class="custom-select" id="inputGroupSelect04">
+                    <option *ngFor="let item of arrayDependencias" value="{{item.idDependencia}}"> {{item.nombreDependencia}}</option>
+                </select>
+            </div>
+            <div class="col">
+                Nombre del director o jefe oficina
+                <input formControlName="principal_name" type="text" class="form form-control">
+            </div>
+        </div>
+        <div class="row mb-4" *ngIf="title!=='Aprobación Solicitud De Servicio' ">
+            <div class="col-6">
+                <h6 class="mb-3">Tipo de servicio</h6>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox"  name="servicio"
+                    [checked]="actualChecked2 === check_type2.Recorrido" (click)="selectCheckBoxservicio(check_type2.Recorrido, 'Recorrido')" >
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Regreso
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="servicio"
+                    [checked]="actualChecked2 === check_type2.Ida" (click)="selectCheckBoxservicio(check_type2.Ida, 'Ida')" >
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Ida
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="servicio" 
+                    [checked]="actualChecked2 === check_type2.Regreso" (click)="selectCheckBoxservicio(check_type2.Regreso, 'Regreso')" >
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Ida y Regreso
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4" *ngIf="title=='Aprobación Solicitud De Servicio' ">
+            <div class="col-6">
+                <h6 class="mb-3">Tipo de servicio</h6>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox"  name="servicio"
+                    [checked]="actualChecked2 === check_type2.Recorrido" (click)="selectCheckBoxservicio(check_type2.Recorrido, 'Recorrido')" [attr.disabled]="inhabilitar">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Regreso
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="servicio"
+                    [checked]="actualChecked2 === check_type2.Ida" (click)="selectCheckBoxservicio(check_type2.Ida, 'Ida')" [attr.disabled]="inhabilitar">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Ida
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="servicio" 
+                    [checked]="actualChecked2 === check_type2.Regreso" (click)="selectCheckBoxservicio(check_type2.Regreso, 'Regreso')" [attr.disabled]="inhabilitar">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Ida y Regreso
+                    </label>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    <!-- seccion 2  -->
+    <form  [formGroup]="form2">
+        <div class="row mb-4">
+            <table>
+                <tr>
+                    <td>
+                        <div class="col-12">
+                            Lugar de salida
+                            <input formControlName="place_departure" class="form form-control" type="text" name="" id="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="col-12">
+                            Lugar de destino 
+                            <input formControlName="destination_place"  class="form form-control" type="text" name="" id="">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col-12">
+                            Hora de regreso 
+                            <input formControlName="return_time"  class="form form-control" type="time" name="" id="">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col-12 d-flex justify-content-center align-items-center">
+                            <button class="btn btn-round btn-high" [disabled]="!form2.valid" (click)="addDynamic()" *ngIf="title!=='Aprobación Solicitud De Servicio' ">Añadir</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Dynamic -->
+        <table formArrayName="dynamic" class="mb-4">
+            <tr style="margin-left: -1rem;" class="d-flex align-items-end mt-3" *ngFor="let quantity of dynamic().controls; let i=index" [formGroupName]="i">
+                <td>
+                    <div class="col-12">
+                        Lugar de destino {{i+1}}
+                        <input formControlName="destination_place"  class="form form-control" type="text" name="" id="" [attr.disabled]="inhabilitar">
+                    </div>
+                </td>
+                <td>
+                    <div class="col-12">
+                        Hora de regreso {{i+1}}
+                        <input formControlName="return_time"  class="form form-control" type="time" name="" id="" [attr.disabled]="inhabilitar">
+                    </div>
+                </td>
+                <td>
+                    <div class="col-12 d-flex justify-content-center align-items-center">
+                        <button (click)="removeDynamic(i)" class="btn btn-danger" *ngIf="title!=='Aprobación Solicitud De Servicio' ">Remove</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <!-- seccion 3  -->
+    <form  [formGroup]="form3">
+        <div class="row mb-4">
+            <div class="col-6">
+                Fecha de la prestacion del servicio
+                <input formControlName="date_service"  class="form form-control"  type="date" name="" id="">
+            </div>
+            <div class="col-6">
+            </div>
+
+            <div class="col-6 mt-4">
+                Hora de salida
+                <input formControlName="departure_time2"  class="form form-control" type="time" name="" id="">
+            </div>
+            <div class="col-6 mt-4">
+                Hora de regreso 
+                <input formControlName="return_time2"  class="form form-control" type="time" name="" id="">
+            </div>
+        </div>
+    </form>
+  
+      
+</div>

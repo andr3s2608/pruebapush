@@ -1,0 +1,10 @@
+
+<app-bloquear-desbloquear-vehiculo (BandejaEvent)="getSearch($event)"></app-bloquear-desbloquear-vehiculo>
+<app-tablet [headers]="headers" [body]="respuesta" (BandejaEvent)="getState($event)" ></app-tablet>
+
+<div class="container d-flex flex-row-reverse mt-5 mb-4">
+    <button class="btn btn-round btn-high" [disabled]="!isBloqueado" (click)="getBlock('desbloquear')">Debloquear</button>
+    
+    <button class="btn btn-round btn-high" style="margin-right: 1rem !important"
+    [disabled]="isBloqueado" (click)="getBlock('bloquear')">Bloquear</button>
+</div>

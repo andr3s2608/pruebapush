@@ -1,0 +1,136 @@
+<div [ngClass]="opt(roles.name)">
+  <!-- Menu Referente  -->
+  <div *ngIf="roles.name == 'referente'" >
+    <div class="row mt-5">
+      <div class="col d-flex justify-content-center">
+        <div class="categories-container" (click)="rutas('/seguimiento-solicitud')">
+          <div class="centered-axis-xy">
+            <img class="categories-container_img" src="../../assets/logo/seguir.png" alt="" srcset="">
+            <div class="categories-container-text">
+            </div>
+            <h3 class="categories-container-text_title headline-xs-govco">seguimiento solicitudes</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col d-flex justify-content-center">
+        <div class="categories-container" (click)="rutas('/solicitud-servicio')">
+          <div class="centered-axis-xy">
+            <img class="categories-container_img" src="../../assets/logo/transporte.png" alt="" srcset="">
+            <div class="categories-container-text">
+              <h3 class="categories-container-text_title headline-xs-govco">solicitud de transporte</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu programador  -->
+  <div *ngIf="roles.name == 'programador'">
+    <div class="row mt-5">
+      <div class="col-3">
+        <div class="col d-flex justify-content-center">
+          <div class="categories-container" (click)="rutas('/seguimiento-programador')">
+            <div class="centered-axis-xy">
+              <img class="categories-container_img" src="../../assets/logo/seguir.png" alt="" srcset="">
+              <div class="categories-container-text">
+              </div>
+              <h3 class="categories-container-text_title headline-xs-govco">seguimiento solicitudes</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="col d-flex justify-content-center">
+          <div class="categories-container" (click)="rutas('/administracion-vehiculo')">
+            <div class="centered-axis-xy">
+              <img class="categories-container_img" src="../../assets/logo/car.png" alt="" srcset="">
+              <div class="categories-container-text">
+              </div>
+              <h3 class="categories-container-text_title headline-xs-govco">administración de vehículo </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="col d-flex justify-content-center">
+          <div class="categories-container" (click)="rutas('/rutas-programador')">
+            <div class="centered-axis-xy">
+              <img class="categories-container_img" src="../../assets/logo/lista.png" alt="" srcset="">
+              <div class="categories-container-text">
+              </div>
+              <h3 class="categories-container-text_title headline-xs-govco">rutas directivas</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="col d-flex justify-content-center">
+          <div class="categories-container" (click)="rutas('/solicitud-servicio-programador')">
+            <div class="centered-axis-xy">
+              <img class="categories-container_img" src="../../assets/logo/transporte.png" alt="" srcset="">
+              <div class="categories-container-text">
+              </div>
+              <h3 class="categories-container-text_title headline-xs-govco">solicitud de transporte </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu directivo  -->
+  <div *ngIf="roles.name == 'directivo'">
+    <div class="row mt-5">
+      <div class="col-3">
+        <div class="col d-flex justify-content-center">
+          <div class="categories-container" (click)="rutas('/seguimiento-directivos')">
+            <div class="centered-axis-xy">
+              <img class="categories-container_img" src="../../assets/logo/seguir.png" alt="" srcset="">
+              <div class="categories-container-text">
+              </div>
+              <h3 class="categories-container-text_title headline-xs-govco">seguimiento solicitudes</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu conductor  -->
+  <div *ngIf="roles.name == 'conductor'">
+    <div class="row mt-5">
+      <div class="col-3">
+        <div class="col d-flex justify-content-center">
+          <div class="categories-container" (click)="rutas('/seguimiento-directivos')">
+            <div class="centered-axis-xy">
+              <img class="categories-container_img" src="../../assets/logo/seguir.png" alt="" srcset="">
+              <div class="categories-container-text">
+              </div>
+              <h3 class="categories-container-text_title headline-xs-govco">seguimiento solicitudes</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu usuario  -->
+  <div *ngIf="roles.name == 'usuario'">
+    <div class="row mt-5">
+      <div class="col-3">
+        <div class="col d-flex justify-content-center">
+          <div class="categories-container" (click)="rutas('/seguimiento-directivos')">
+            <div class="centered-axis-xy">
+              <img class="categories-container_img" src="../../assets/logo/seguir.png" alt="" srcset="">
+              <div class="categories-container-text">
+              </div>
+              <h3 class="categories-container-text_title headline-xs-govco">seguimiento solicitudes</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

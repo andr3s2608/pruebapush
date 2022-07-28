@@ -1,0 +1,36 @@
+<app-solicitud-servicio [title]="'Rutas Directivas'" (SolicitudEvent)="getSolicitud($event)"></app-solicitud-servicio>
+<app-funcionarios-servicio (FuncionarioEvent)="getFuncionarios($event)"></app-funcionarios-servicio>
+
+<div class="container mt-5">
+    <p class="bg-primary title-service">Gestion de la solicitud de viajes </p>
+    <table id="example" class="display" style="width:100%">
+        <thead style="background-color: #3366CC; color: white;">
+            <tr>
+                <th  style="color:white;;">placa vehiculo</th>
+                <th  style="color:white;;">Estado</th>
+                <th  style="color:white;;">Conductor</th>
+                <th  style="color:white;;">Trayecto</th>
+                <th  style="color:white;;">Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of arrayVehiculo; let i = index">
+                <td>{{item.placaVehiculo}}</td>
+                <td>{{item.estadoVehiculo.nombre}}</td>
+                <td>{{item.conductor.nombre}}</td>
+                <td>----</td>
+                <td>
+                    <div class="form-check">
+                        <input type="radio" name="flexRadioDefault" id="{{'flexRadioDefault' + i}}"
+                            class="form-check-input" (click)="selectRadio(item)">
+                        <label for="{{'flexRadioDefault' + i}}" class="form-check-label"> Seleccionar </label>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="container d-flex flex-row-reverse mt-5 mb-4">
+    <button class="btn btn-round btn-high" [disabled]="unlock" (click)="send()">Guardar</button>
+</div>

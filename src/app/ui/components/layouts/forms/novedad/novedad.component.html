@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <p class="bg-primary title-service">Novedad </p>
+    <form  [formGroup]="form">   
+        <div class="row mt-4">
+            <div class="col-6">
+                Novedad
+                <select  formControlName="novelty" class="custom-select" id="inputGroupSelect04">
+                    <option selected>choose...</option>
+                    <option *ngFor="let item of arrayTipo" value="{{item.idConstante}}">{{item.nombre}}</option>
+                </select>
+            </div>
+            <div class="col-6">
+            </div>
+
+        </div>
+        
+        <div class="row">
+            <div class="col">
+                <p class="mt-3 mb-3">justificación</p>
+                <div class="row" >
+                    <div class="col-6">
+                        <textarea formControlName="justification" class="form form-control" name="" id="" cols="30" rows="2"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <div class=" d-flex flex-row-reverse">
+            <button class="btn btn-round btn-high" [disabled]="!form.valid"  (click)="send()">Agregar novedad</button>
+            <button class="btn btn-round btn-high" (click)="back()" style="margin-right: 1rem !important;">Cancelar</button>
+        </div>
+
+    </form>
+
+</div>

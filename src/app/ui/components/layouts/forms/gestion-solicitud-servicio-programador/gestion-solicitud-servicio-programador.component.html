@@ -1,0 +1,71 @@
+<div class="container mt-5">
+    <p class="bg-primary title-service">gestión de la solicitud del servicio </p>
+
+    <p>vehículo internos </p>
+    <!-- TABLET -->
+    <table id="example" class="display" style="width:100%">
+        <thead style="background-color: #3366CC; color: white;">
+            <tr>
+                <th style="color:white;;">placa vehiculo</th>
+                <th style="color:white;;">Estado</th>
+                <th style="color:white;;">Conductor</th>
+                <th style="color:white;;">Trayecto</th>
+                <th style="color:white;;">Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of arrayVehiculo; let i = index">
+                <td>{{item.placaVehiculo}}</td>
+                <td>{{item.estadoVehiculo.nombre}}</td>
+                <td>{{item.conductor.nombre}}</td>
+                <td>----</td>
+                <td>
+                    <div class="form-check">
+                        <input type="radio" name="flexRadioDefault" id="{{'flexRadioDefault' + i}}"
+                            class="form-check-input" (click)="selectRadio(item)">
+                        <label for="{{'flexRadioDefault' + i}}" class="form-check-label"> Seleccionar </label>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p class="mt-5 bg-primary title-service">vehículo subcontratado</p>
+    <!-- formulario -->
+    <form [formGroup]="form">
+        <div class="row mt-4">
+
+            <div class="col-2">
+                Contratista
+                <input formControlName="contractor" class="form form-control" type="text" name="" id="">
+            </div>
+            <div class="col-2">
+                Conductor
+                <input formControlName="driver" class="form form-control" type="text" name="" id="">
+            </div>
+            <div class="col-2">
+                Placa
+                <input formControlName="license_plate" class="form form-control" type="text" name="" id="">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <p class="mt-3 mb-3">Observación </p>
+                <div class="row">
+                    <div class="col-6">
+                        <textarea formControlName="observation" class="form form-control" name="" id="" cols="30"
+                            rows="2"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="container d-flex flex-row-reverse mt-5 mb-4">
+        <button class="btn btn-round btn-high" [disabled]="!form.valid" (click)="send()">Guardar</button>
+    </div>
+
+
+
+</div>

@@ -1,0 +1,31 @@
+<!-- <app-solicitud-servicio  [title]="'Aprobación Solicitud De Servicio'"  (SolicitudEvent)="getSolicitud($event)" ></app-solicitud-servicio> -->
+<app-ajuste-solitudes-servicios [title]="'Aprobación Solicitud De Servicio'" [requestForm]="requestFormload"   (SolicitudEvent)="getSolicitud($event)"></app-ajuste-solitudes-servicios>
+<app-funcionarios-servicio      [title]="'Aprobación Solicitud De Servicio'" [requestForm]="requestFormload "  (FuncionarioEvent)="getFuncionarios($event)"></app-funcionarios-servicio>
+<!-- BTN -->
+<div class="container d-flex flex-row-reverse mt-4 mb-3">
+    <button class="btn btn-round btn-high margin-button" (click)="validate()" > validación de datos</button>
+    <button class="btn btn-round btn-high margin-button"(click)="reject()"    >Rechazar</button>
+    <button class="btn btn-round btn-high margin-button" (click)="aprove()" >Aprobar</button>
+</div>
+
+<!--[disabled]="unlock"-->
+<!-- OBSERVACION  -->
+<div class="container mt-5" *ngIf="show" >
+    <p class="bg-primary title-service">Sección de observación</p>
+    <form [formGroup]="form4">
+        <div class="row mb-4">
+            <div class="col">
+                <p class="mt-3 mb-3">observación</p>
+                <div class="row" >
+                    <div class="col-6">
+                        <textarea formControlName="observacion" class="form form-control" name="" id="" cols="30" rows="2"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </form>
+
+    <button class="btn btn-round btn-high mt-4 mb-5 enviar " (click)="observacion()">Enviar</button>
+
+
+</div>

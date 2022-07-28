@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row mt-1">
+        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 ml-5 ">
+            <img src="https://cdni.iconscout.com/illustration/premium/thumb/user-login-4268415-3551762.png"
+                alt="login_access" class="img-fluid mt-5">
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 mt-5 py-4 pr-2">
+            <form [formGroup]="loginForm" (ngSubmit)="UserAcces(loginForm.value)">
+                <div class="form-group mt-5">
+                    <label for="exampleInputEmail1" class="mt-5">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        formControlName="email" autocomplete="off">
+                </div>
+                <a routerLink="/Clave" style="cursor: pointer;" class="float-right forgot mr-1">Olvido su
+                    contraseña?</a>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Clave</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password"
+                        autocomplete="off">
+                </div>
+                <button type="submit" class="btn btn-primary">Acceder</button>
+            </form>
+        </div>
+    </div>
+</div>

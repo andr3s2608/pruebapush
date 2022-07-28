@@ -1,0 +1,5 @@
+<app-ajuste-solitudes-servicios [title]="'Ajuste Solicitud de Servicio '"  [requestForm]="requestFormload"   (SolicitudEvent)="getSolicitud($event)"></app-ajuste-solitudes-servicios>
+<app-funcionarios-servicio      [requestForm]="requestFormload "   (FuncionarioEvent)="getFuncionarios($event)"></app-funcionarios-servicio>
+<div class="container mt-4 mb-4">
+    <button class="btn btn-round btn-high" (click)="send()">Enviar</button>
+</div>

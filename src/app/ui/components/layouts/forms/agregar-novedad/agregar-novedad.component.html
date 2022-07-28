@@ -1,0 +1,102 @@
+<div class="container mt-4">
+    <h2>Agregar solicitud Hija</h2>
+    <div class="row mb-4">
+        <div class="col-6">
+            <h6 class="mb-3">Fecha de solicitud</h6>
+            <div class="row">
+                <input  disabled class="form form-control" type="date" name="" id="">
+            </div>
+        </div>
+        <div class="col-6">
+            <h6 class="mb-3">Tipo de Transporte</h6>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Carga
+                </label>
+                </div>
+                <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="">
+                <label class="form-check-label" for="flexCheckChecked">
+                    Pasajero
+                </label>
+            </div>
+
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col">
+            Cantidad de pasajeros
+            <input type="text" class="form form-control">
+        </div>
+        <div class="col">
+            Dependencias
+            <select class="custom-select" id="inputGroupSelect04">
+                <option selected>Choose...</option>
+                <option value="1">DESPACHO SECRETARIO</option>
+                <option value="2">MODELO DE SALUD TERRITORIAL</option>
+                <option value="3">Gestión judicial</option>
+                <option value="4">Oficina comunicaciones</option>
+                <option value="5">Oficina control interno</option>
+                <option value="6">Oficina asuntos disciplinarios </option>
+                <option value="7">Gestor de etica</option>
+                <option value="8">Comité de Convivencia</option>
+                <option value="9">SUBSECRETARIA SALUD PÚBLICA</option>
+                <option value="10">Dirección salud colectiva</option>
+                <option value="11">Subdirección determinantes salud</option>
+                <option value="12">Procesos legales</option>
+              </select>
+        </div>
+        <div class="col">
+            Nombre del director o jefe oficina
+            <input disabled type="text" class="form form-control">
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col-6">
+            <h6 class="mb-3">Tipo de servicio</h6>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Recorrido
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="">
+                <label class="form-check-label" for="flexCheckChecked">
+                    Ida
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                <label class="form-check-label" for="flexCheckChecked">
+                    Ida y Regreso
+                </label>
+            </div>
+        </div>
+        <div class="col-6">
+            ID asociado
+            <input disabled type="text" class="form form-control">
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col-6">
+            Fecha de la prestacion del servicio
+            <input  class="form form-control" disabled type="date" name="" id="">
+        </div>
+        <div class="col-6">
+        </div>
+
+        <div class="col-6 mt-4">
+            Hora de salida
+            <input  class="form form-control" type="time" name="" id="">
+        </div>
+        <div class="col-6 mt-4">
+            Hora de regreso 
+            <input  class="form form-control" type="time" name="" id="">
+        </div>
+
+    </div>
+
+    <app-funcionarios-servicio></app-funcionarios-servicio>
+</div>

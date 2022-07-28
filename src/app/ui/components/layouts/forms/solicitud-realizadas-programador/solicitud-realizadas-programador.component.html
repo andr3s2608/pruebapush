@@ -1,0 +1,95 @@
+<div class="container mt-4">
+    <h2>Solicitudes Recibidas</h2>
+    <form [formGroup]="form">
+        <div class="row mb-4 mt-3">
+            <div class="col">
+                <h6 class="mb-3">Fecha de Servicios</h6>
+                <div class="row">
+                    <div class="col">
+                        Fecha Inicial
+                        <input formControlName="initial_date_services" class="form form-control" type="date" name=""
+                            id="">
+                    </div>
+                    <div class="col">
+                        Fecha Final
+                        <input formControlName="final_date_services" class="form form-control" type="date" name=""
+                            id="">
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h6 class="mb-3">Fecha de Solicitud</h6>
+                <div class="row">
+                    <div class="col">
+                        <span>
+                            Fecha Inicial
+                            <input formControlName="initial_date_request" class="form form-control" type="date" name=""
+                                id="">
+                        </span>
+                    </div>
+                    <div class="col">
+                        Fecha Final
+                        <input formControlName="final_date_request" class="form form-control" type="date" name="" id="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col">
+                Estado
+                <select formControlName="state" class="custom-select" id="inputGroupSelect04">
+                    <option value=''>Estados Disponibles</option>
+                    <option value="19"> Pendiente de aprobacion </option>
+                    <option value="20"> Aprobada</option>
+                    <option value="21"> Rechazada </option>
+                    <option value="22"> Cancelada</option>
+                    <option value="23">Validacion de datos</option>
+                    <option value="24">No procedente</option>
+                    <option value="25">Asignada</option>
+                    <option value="26">Finalizada</option>
+                </select>
+            </div>
+            <div class="col">
+                ID Solicitud
+                <input formControlName="request_id" type="text" class="form form-control">
+            </div>
+            <div class="col">
+                Placa de Vehículo
+                <select formControlName="vehicle" class="custom-select" id="inputGroupSelect04">
+                    <option value="">Placas Disponibles</option>
+                    <option *ngFor="let item of arrayVehiculo" value="{{item.idVehiculo}}">{{item.placaVehiculo}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col">
+                Referente
+                <select formControlName="referrer" class="custom-select" id="inputGroupSelect04">
+                    <option value="">Referentes Disponibles</option>
+                    <option *ngFor="let item of arrayReferente" value="{{item.idFuncionario}}">
+                        {{item.nombreFuncionario}}
+                    </option>
+                </select>
+            </div>
+            <div class="col">
+                Conductor
+                <input formControlName="driver" type="text" class="form form-control">
+            </div>
+            <div class="col">
+                Dependencia
+                <select formControlName="dependence" class="custom-select" id="inputGroupSelect04">
+                    <option value="">Dependencia Disponibles</option>
+                    <option *ngFor="let item of arryDependencia" value="{{item.idDependencia}}">
+                        {{item.nombreDependencia}}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <button class="btn btn-round btn-high" [disabled]="!form.valid" (click)="search()">Buscar</button>
+        </div>
+    </form>
+</div>

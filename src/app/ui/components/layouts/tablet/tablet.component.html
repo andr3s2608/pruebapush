@@ -1,0 +1,169 @@
+<div class="container mt-4">
+    <table id="example" class="display" style="width:100%; margin-bottom: 100px;" >
+        <thead style="background-color: #3366CC; color: white;">
+            <tr>
+                <th style="color:white; padding-right: 1rem;" *ngFor="let item of headers">{{item.name}}</th>
+            </tr>
+        </thead>
+        
+        <!--Transporte-->
+        <tbody *ngIf="flag==='transporte'">
+            <tr *ngFor="let item of itembody; let i = index">
+                <td>{{item.placaVehiculo}}</td>
+                <td>{{item.estadoVehiculo.nombre}}</td>
+                <td>{{item.conductor.nombre}}</td>
+                <td>prueba</td>
+                <td>prueba</td>
+                <td>prueba</td>
+                <td>prueba</td>
+                <td>
+                    <div class="form-check">
+                        <input type="radio" name="flexRadioDefault" id="{{'flexRadioDefault' + i}}"
+                            class="form-check-input" (click)="selectRadio(item)">
+                        <label for="{{'flexRadioDefault' + i}}" class="form-check-label"> Selecionar </label>
+                    </div>
+                </td>
+                <td>{{item.taskStatus}}</td>
+                <td *ngIf="roles.name == 'referente'">
+                    <a class="nav-link" [routerLink]="['/ajuste-solicitud', item.taskId , item.instanceId]"
+                        (click)="send(item.taskId)"> Editar </a>
+                </td>
+                <td *ngIf="roles.name == 'directivo'">
+                    <div class="row">
+                        <div class="col-4">
+                            <a class="nav-link" [routerLink]="['/aprobacion-directivos', item.taskId, item.instanceId]"
+                                (click)="send(item.taskId)"> Gestionar </a>
+                        </div>
+                    </div>
+                </td>
+                <td *ngIf="roles.name == 'conductor'">
+                    <a class="nav-link" routerLink="/encuesta"> Encuesta </a>
+                </td>
+                <td *ngIf="roles.name == 'usuario'">
+                    <a class="nav-link" routerLink="/encuesta"> Encuesta </a>
+                </td>
+            </tr>
+        </tbody>
+
+        <!--Directivo-->
+        <tbody *ngIf="flag==='directivo'">
+            <tr *ngFor="let item of itemdirectivo; let i = index">
+                <td>{{item.variables.codSolicitud}}</td>
+                <td>{{item.variables.nomTipoServicio}}</td>
+                <td>{{item.variables.lugarInicioSolicitud}}</td>
+                <td>----</td>
+                <td>{{item.variables.horaInicioServicioText}}</td>
+                <td>{{item.variables.horaFinServicioText}}</td>
+                <td>{{item.variables.fechaInicioServicioText}}</td>
+                <td>{{item.variables.fechaSolicitudText}}</td>
+                <td>{{item.variables.nomEstadoSolicitud}}</td>
+
+                <td *ngIf="roles.name == 'referente'">
+                    <a class="btn btn-primary" style="text-decoration: none;background-color:#3366CC; border:2px solid #3366CC;" [routerLink]="['/ajuste-solicitud',item.variables.idSolicitud,item.taskId,item.instanceId]"
+                    (click)="send(item.taskId)"> Editar </a>
+                </td>
+
+                <td *ngIf="roles.name == 'directivo'">
+                    <div class="row">
+                        <div class="col-4">
+                            <a class="btn btn-primary" style="text-decoration: none;background-color:#3366CC; border:2px solid #3366CC;" [routerLink]="['/aprobacion-directivos',item.variables.idSolicitud,item.taskId,item.instanceId]"
+                                (click)="send(item.taskId)">Gestionar </a>
+                        </div>
+                    </div>
+                </td>
+
+                <td *ngIf="roles.name == 'conductor'">
+                    <a class="nav-link" routerLink="/encuesta"> Encuesta </a>
+                </td>
+
+                <td *ngIf="roles.name == 'usuario'">
+                    <a class="nav-link" routerLink="/encuesta"> Encuesta </a>
+                </td>
+            </tr>
+        </tbody>
+
+         <!--Referente-->
+         <tbody *ngIf="flag==='referente'">
+            <tr *ngFor="let item of itemreferente; let i = index">
+                <td>{{item.variables.codSolicitud}}</td>
+                <td>{{item.variables.nomTipoServicio}}</td>
+                <td>{{item.variables.lugarInicioSolicitud}}</td>
+                <td>----</td>
+                <td>{{item.variables.horaInicioServicioText}}</td>
+                <td>{{item.variables.horaFinServicioText}}</td>
+                <td>{{item.variables.fechaInicioServicioText}}</td>
+                <td>{{item.variables.fechaSolicitudText}}</td>
+                <td>{{item.variables.nomEstadoSolicitud}}</td>
+
+                <td *ngIf="roles.name == 'referente'">
+                    <div class="row">
+                        <div class="col-4">
+                            <a class="btn btn-primary" style="text-decoration: none;background-color:#3366CC; border:2px solid #3366CC;" [routerLink]="['/ajuste-solicitud',item.variables.idSolicitud,item.taskId,item.instanceId,]"
+                                (click)="send(item.taskId)">Gestionar </a>
+                        </div>
+                    </div>
+                </td>
+
+                <td *ngIf="roles.name == 'directivo'">
+                    <div class="row">
+                        <div class="col-4">
+                            <a class="btn btn-primary" style="text-decoration: none;background-color:#3366CC; border:2px solid #3366CC;" [routerLink]="['/aprobacion-directivos',item.variables.idSolicitud,item.taskId,item.instanceId,]"
+                                (click)="send(item.taskId)">Gestionar </a>
+                        </div>
+                    </div>
+                </td>
+
+                <td *ngIf="roles.name == 'conductor'">
+                    <a class="nav-link" routerLink="/encuesta"> Encuesta </a>
+                </td>
+
+                <td *ngIf="roles.name == 'usuario'">
+                    <a class="nav-link" routerLink="/encuesta"> Encuesta </a>
+                </td>
+            </tr>
+        </tbody>
+       
+           <!--Programador-->
+           <tbody *ngIf="flag==='programador'">
+            <tr *ngFor="let item of itemprogramador; let i = index">
+                <td>{{item.variables.codSolicitud}}</td>
+                <td>{{item.variables.nomTipoServicio}}</td>
+                <td>{{item.variables.lugarInicioSolicitud}}</td>
+                <td>----</td>
+                <td>{{item.variables.horaInicioServicioText}}</td>
+                <td>{{item.variables.horaFinServicioText}}</td>
+                <td>{{item.variables.fechaInicioServicioText}}</td>
+                <td>{{item.variables.fechaSolicitudText}}</td>
+                <td>{{item.variables.nomEstadoSolicitud}}</td>
+
+                <td *ngIf="roles.name == 'referente'">
+                    <a class="btn btn-primary"  style="text-decoration: none;background-color:#3366CC; border:2px solid #3366CC;" [routerLink]="['/ajuste-solicitud', item.taskId , item.instanceId]"
+                    (click)="send(item.taskId)"> Editar </a>
+                </td>
+
+                <td *ngIf="roles.name == 'directivo'">
+                    <div class="row">
+                        <div class="col-4">
+                            <a class="btn btn-primary" style="text-decoration: none;background-color:#3366CC; border:2px solid #3366CC;" [routerLink]="['/aprobacion-directivos',item.variables.idSolicitud,item.taskId,item.instanceId,]"
+                                (click)="send(item.taskId)">Gestionar </a>
+                        </div>
+                    </div>
+                </td>
+
+                <td *ngIf="roles.name == 'conductor'">
+                    <a class="nav-link" routerLink="/encuesta"> Encuesta </a>
+                </td>
+
+                <td *ngIf="roles.name == 'usuario'">
+                    <a class="nav-link" routerLink="/encuesta"> Encuesta </a>
+                </td>
+                <td *ngIf="roles.name == 'programador'">
+                    <a class="btn btn-primary"  style="text-decoration: none;background-color:#3366CC; border:2px solid #3366CC;" [routerLink]="['/ajuste-solicitud-programador',item.variables.idSolicitud,item.taskId,item.instanceId]"
+                    (click)="send(item.taskId)"> Gestionar </a>
+                </td>
+            </tr>
+        </tbody>
+        <!--fin table-->
+     
+    </table>
+</div>

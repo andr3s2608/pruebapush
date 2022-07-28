@@ -1,0 +1,13 @@
+<app-solicitud-servicio [title]="'Solicitud De Servicio'" (SolicitudEvent)="getSolicitud($event)">
+</app-solicitud-servicio>
+<app-funcionarios-servicio (FuncionarioEvent)="getFuncionarios($event)"></app-funcionarios-servicio>
+<div class="container mt-4 mb-3">
+    <button class="btn btn-round btn-high" (click)="send()">Enviar</button>
+</div>
+
+<!-- [disabled]="unlock" -->
+
+<!-- <div class="alert gov-co-alert-sucess mt-4 elementToFadeInAndOut" [hidden]="show" style="position: absolute;width: 100%;bottom: -30rem;">
+    <span class="govco-icon govco-icon-tramite-en-linea"></span>
+    Tu información se ha enviado correctamente
+ </div> -->
